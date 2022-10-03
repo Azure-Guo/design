@@ -6,7 +6,6 @@ import com.axin.design.pay.strategyContext.PayContext;
 import com.axin.design.pay.strategyEnum.StrategyEnum;
 import com.axin.design.pay.strategyFactory.StrategyFactory;
 
-import java.util.Map;
 
 // 最终我们就暴露门面，对于里面所有的工厂。策略，策略枚举统统不暴露
 // 门面就是我们超强的封装
