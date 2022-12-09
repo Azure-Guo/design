@@ -1,5 +1,6 @@
 package com.axin.design.pay.facade;
 
+import com.axin.design.pay.decorator.AddFuncDecorator;
 import com.axin.design.pay.pojo.PayBody;
 import com.axin.design.pay.strategy.PayStrategy;
 import com.axin.design.pay.strategyContext.PayContext;
@@ -21,8 +22,10 @@ public class StrategyFacade {
         PayStrategy payStrategy = StrategyFactory.getPayStrategy(strategyEnum);
         // 生成我们的策略上下文
         PayContext payContext = new PayContext(payStrategy);
+        // 装饰了下payContext
+        AddFuncDecorator addFuncDecorator = new AddFuncDecorator(payContext);
         // 进行扣款
-        payContext.execute(payBody);
+        addFuncDecorator.execute(payBody);
         return true;
     }
 
